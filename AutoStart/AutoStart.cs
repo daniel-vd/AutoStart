@@ -19,6 +19,8 @@ namespace AutoStart {
 
         bool start = false;
 
+        devje
+
         string id = null;
         string path = null;
         string programsFile;
