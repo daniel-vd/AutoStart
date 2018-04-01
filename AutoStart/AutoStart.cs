@@ -17,8 +17,6 @@ namespace AutoStart {
 
         FilesManager filesManager = new FilesManager();
 
-        bool start = false;
-
         string id = null;
         string path = null;
         string programsFile;

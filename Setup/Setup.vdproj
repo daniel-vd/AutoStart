@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_141299EDDC7941FEBA5B2B5939FBEF17"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2F468447B703CCD58C2C21BF43959474"
         "OwnerKey" = "8:_C16AF5D33F174AC4B655339943656A40"
         "MsmSig" = "8:_UNDEFINED"
@@ -45,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E81AC6BC7BDC4AB3AFCF7B4790FB6C69"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_77C00C2A942C4A2B8CCA5C3B8C353AF5"
         "MsmSig" = "8:_UNDEFINED"
@@ -52,13 +64,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C16AF5D33F174AC4B655339943656A40"
+        "OwnerKey" = "8:_2F468447B703CCD58C2C21BF43959474"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2F468447B703CCD58C2C21BF43959474"
+        "OwnerKey" = "8:_C16AF5D33F174AC4B655339943656A40"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -162,6 +174,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_141299EDDC7941FEBA5B2B5939FBEF17"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Icon48.ico"
+            "TargetName" = "8:Icon48.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_E51E0307C89B439F88C985415A285A77"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2F468447B703CCD58C2C21BF43959474"
             {
             "AssemblyRegister" = "3:1"
@@ -224,6 +256,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E81AC6BC7BDC4AB3AFCF7B4790FB6C69"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\icons\\Material Icons_e8ac(0)_256 a- kopie.ico"
+            "TargetName" = "8:Material Icons_e8ac(0)_256 a- kopie.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_E51E0307C89B439F88C985415A285A77"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -280,15 +332,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoStart"
-        "ProductCode" = "8:{DC391A25-2C8A-447C-9D01-C3DF92D6CA7A}"
-        "PackageCode" = "8:{8EC61C3B-0C45-40C1-9A66-40740F20C8F1}"
+        "ProductCode" = "8:{01FA3D75-747D-44FF-BD4B-6C995C70E846}"
+        "PackageCode" = "8:{8828C671-2B71-4952-B337-0A50C1F8CCB3}"
         "UpgradeCode" = "8:{DF2BBD4F-10CD-46F4-A7B3-CCAE4F1ABED9}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.4"
+        "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Danielvd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.danielvd.tk"
@@ -298,7 +350,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:AutoStart installer"
         "ARPURLINFOABOUT" = "8:http://www.danielvd.tk"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_141299EDDC7941FEBA5B2B5939FBEF17"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -462,7 +514,7 @@
             "Target" = "8:_77C00C2A942C4A2B8CCA5C3B8C353AF5"
             "Folder" = "8:_6FC5D9D1E5CD447E89F6E558F37FACD1"
             "WorkingFolder" = "8:_E51E0307C89B439F88C985415A285A77"
-            "Icon" = "8:"
+            "Icon" = "8:_141299EDDC7941FEBA5B2B5939FBEF17"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7A0C4FD65D044B2CAAF6FD5BB7C3DC86"
@@ -476,7 +528,7 @@
             "Target" = "8:_77C00C2A942C4A2B8CCA5C3B8C353AF5"
             "Folder" = "8:_36B11532804149E08685CEF0C825BD79"
             "WorkingFolder" = "8:_E51E0307C89B439F88C985415A285A77"
-            "Icon" = "8:"
+            "Icon" = "8:_141299EDDC7941FEBA5B2B5939FBEF17"
             "Feature" = "8:"
             }
         }
