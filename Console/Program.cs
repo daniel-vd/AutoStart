@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -23,6 +24,12 @@ namespace ConsoleApp {
             string id = null;
             string name = null;
             string path = null;
+
+            //Analytics
+            AutoMeasurement.Instance = new WinFormAutoMeasurement();
+            AutoMeasurement.Start(new MeasurementConfiguration("UA-117174081-1"), "", new TimeSpan(1));
+
+            AutoMeasurement.Client.TrackScreenView("Console");
 
             directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AutoStart");
             programsFile = Path.Combine(directoryPath, "Programs.xml");
