@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace ConsoleApp {
@@ -14,6 +18,7 @@ namespace ConsoleApp {
         static String programsFile;
         static String idFile;
 
+        [STAThread]
         static void Main(string[] args) {
             string id = null;
             string name = null;
@@ -51,6 +56,8 @@ namespace ConsoleApp {
 
             Console.WriteLine("");
             Console.WriteLine("");
+
+            Task<bool> checkUpdate = CheckUpdate();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(programsFile);
@@ -98,16 +105,43 @@ namespace ConsoleApp {
                 Thread.Sleep(5);
             }
 
-            Console.WriteLine(" ");
-            for (int i = 0; i < ("This screen will automatically close in 1 second").Length; i++) {
-                Console.Write(("This screen will automatically close in 1 second")[i]);
-                Thread.Sleep(5);
+            checkUpdate.Wait();
+
+            bool updateAvailable = checkUpdate.Result;
+
+            if (updateAvailable)
+            {
+                if (MessageBox.Show("A new version of AutoStart is available, would you like to download the update?",
+                    "Update AutoStart", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    Process.Start("http://www.danielvd.tk/autostart/?msg=thankyou");
+                    Process.Start("http://www.danielvd.tk/autostart/download.php");
+                }
             }
 
 
-            Thread.Sleep(1000);
-
-
         }
+        
+
+        static async Task<bool> CheckUpdate()
+        {
+            var http = new HttpClient();
+
+            string latestVersionString = await http.GetStringAsync(new Uri("http://danielvd.tk/autostart/version.php"));
+            Version latestVersion = new Version(latestVersionString);
+
+            //get my own version to compare against latest.
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            Version myVersion = new Version(fvi.ProductVersion);
+
+            if (latestVersion > myVersion)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

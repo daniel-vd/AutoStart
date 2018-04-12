@@ -64,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2F468447B703CCD58C2C21BF43959474"
+        "OwnerKey" = "8:_59997E29B3FC80A8A050E1B9772A8EF9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,7 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59997E29B3FC80A8A050E1B9772A8EF9"
+        "OwnerKey" = "8:_2F468447B703CCD58C2C21BF43959474"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -201,11 +201,6 @@
             "AssemblyAsmDisplayName" = "8:AutoStart, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2F468447B703CCD58C2C21BF43959474"
-                    {
-                    "Name" = "8:AutoStart.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AutoStart.exe"
             "TargetName" = "8:"
@@ -232,11 +227,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_59997E29B3FC80A8A050E1B9772A8EF9"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -332,15 +322,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoStart"
-        "ProductCode" = "8:{01FA3D75-747D-44FF-BD4B-6C995C70E846}"
-        "PackageCode" = "8:{8828C671-2B71-4952-B337-0A50C1F8CCB3}"
+        "ProductCode" = "8:{4F696AF1-309C-47B5-8F71-979340DD4538}"
+        "PackageCode" = "8:{23A5B1F1-49B3-4E18-8013-1B7AEB352957}"
         "UpgradeCode" = "8:{DF2BBD4F-10CD-46F4-A7B3-CCAE4F1ABED9}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:Danielvd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.danielvd.tk"
