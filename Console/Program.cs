@@ -104,6 +104,9 @@ namespace ConsoleApp {
                 Console.Write(("AutoStart succesfully started all programs!")[i]);
                 Thread.Sleep(5);
             }
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("Checking for updates...");
 
             checkUpdate.Wait();
 
@@ -120,12 +123,17 @@ namespace ConsoleApp {
                 }
             }
 
-
         }
         
-
+        //Method for checking for updates
         static async Task<bool> CheckUpdate()
         {
+            if (!CheckForInternetConnection())
+            {
+                Console.WriteLine("Could not check for updates due to no internet connection!");
+                return false;
+            }
+
             var http = new HttpClient();
 
             string latestVersionString = await http.GetStringAsync(new Uri("http://danielvd.tk/autostart/version.php"));
@@ -141,6 +149,23 @@ namespace ConsoleApp {
                 return true;
             }
             return false;
+        }
+
+        //Method for checking internet connection
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://clients3.google.com/generate_204"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
