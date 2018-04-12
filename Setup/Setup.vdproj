@@ -201,11 +201,6 @@
             "AssemblyAsmDisplayName" = "8:AutoStart, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2F468447B703CCD58C2C21BF43959474"
-                    {
-                    "Name" = "8:AutoStart.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AutoStart.exe"
             "TargetName" = "8:"
@@ -232,11 +227,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_59997E29B3FC80A8A050E1B9772A8EF9"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -332,15 +322,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoStart"
-        "ProductCode" = "8:{01FA3D75-747D-44FF-BD4B-6C995C70E846}"
-        "PackageCode" = "8:{8828C671-2B71-4952-B337-0A50C1F8CCB3}"
+        "ProductCode" = "8:{33686B21-F476-4FDA-94FE-72FD6CCE3C2D}"
+        "PackageCode" = "8:{76130C96-C97D-4BE7-95C0-75B515837153}"
         "UpgradeCode" = "8:{DF2BBD4F-10CD-46F4-A7B3-CCAE4F1ABED9}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Danielvd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.danielvd.tk"

@@ -1,11 +1,16 @@
-﻿using System;
+﻿using CSharpAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace ConsoleApp {
@@ -14,10 +19,17 @@ namespace ConsoleApp {
         static String programsFile;
         static String idFile;
 
+        [STAThread]
         static void Main(string[] args) {
             string id = null;
             string name = null;
             string path = null;
+
+            //Analytics
+            AutoMeasurement.Instance = new WinFormAutoMeasurement();
+            AutoMeasurement.Start(new MeasurementConfiguration("UA-117174081-1"), "", new TimeSpan(1));
+
+            AutoMeasurement.Client.TrackScreenView("Console");
 
             directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AutoStart");
             programsFile = Path.Combine(directoryPath, "Programs.xml");
@@ -51,6 +63,8 @@ namespace ConsoleApp {
 
             Console.WriteLine("");
             Console.WriteLine("");
+
+            Task<bool> checkUpdate = CheckUpdate();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(programsFile);
@@ -97,17 +111,69 @@ namespace ConsoleApp {
                 Console.Write(("AutoStart succesfully started all programs!")[i]);
                 Thread.Sleep(5);
             }
-
             Console.WriteLine(" ");
-            for (int i = 0; i < ("This screen will automatically close in 1 second").Length; i++) {
-                Console.Write(("This screen will automatically close in 1 second")[i]);
-                Thread.Sleep(5);
+            Console.WriteLine(" ");
+            Console.WriteLine("Checking for updates...");
+
+            checkUpdate.Wait();
+
+            bool updateAvailable = checkUpdate.Result;
+
+            if (updateAvailable)
+            {
+                if (MessageBox.Show("A new version of AutoStart is available, would you like to download the update?",
+                    "Update AutoStart", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    Process.Start("http://www.danielvd.tk/autostart/?msg=thankyou");
+                    Process.Start("http://www.danielvd.tk/autostart/download.php");
+                }
             }
 
-
-            Thread.Sleep(1000);
-
-
         }
+        
+        //Method for checking for updates
+        static async Task<bool> CheckUpdate()
+        {
+            if (!CheckForInternetConnection())
+            {
+                Console.WriteLine("Could not check for updates due to no internet connection!");
+                return false;
+            }
+
+            var http = new HttpClient();
+
+            string latestVersionString = await http.GetStringAsync(new Uri("http://danielvd.tk/autostart/version.php"));
+            Version latestVersion = new Version(latestVersionString);
+
+            //get my own version to compare against latest.
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            Version myVersion = new Version(fvi.ProductVersion);
+
+            if (latestVersion > myVersion)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //Method for checking internet connection
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://clients3.google.com/generate_204"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

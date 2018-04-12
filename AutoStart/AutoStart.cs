@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpAnalytics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,6 +34,13 @@ namespace AutoStart {
 
         public AutoStart() {
             InitializeComponent();
+
+
+            //Analytics
+            AutoMeasurement.Instance = new WinFormAutoMeasurement();
+            AutoMeasurement.Start(new MeasurementConfiguration("UA-117174081-1"));
+
+            AutoMeasurement.Client.TrackScreenView("Main screen");
 
             programsFile = filesManager.programsFile;
 
@@ -73,6 +81,7 @@ namespace AutoStart {
             this.label1.Text = text;
         }
 
+        //Add program
         private void button1_Click(object sender, EventArgs e) {
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 String programPath = openFileDialog1.FileName;
@@ -85,6 +94,7 @@ namespace AutoStart {
                 //Add program to programs file
                 filesManager.AddProgramsRow(programPath, id, programName);
             }
+            AutoMeasurement.Client.TrackEvent("Add row", "Row Editing");
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
@@ -114,6 +124,8 @@ namespace AutoStart {
             doc.Save(programsFile);
 
             dataGridView1.Rows.Remove(selectedRow);
+
+            AutoMeasurement.Client.TrackEvent("Delete row", "Row Editing");
         }
 
         //Edit name of row
@@ -147,6 +159,8 @@ namespace AutoStart {
             selectedRow.Cells["name"].Value = input;
 
             doc.Save(programsFile);
+
+            AutoMeasurement.Client.TrackEvent("Edit row", "Row Editing");
         }
 
         private DialogResult ShowInputDialog(string input) {
